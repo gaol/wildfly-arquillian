@@ -96,6 +96,9 @@ public class ServerSetupObserver {
         }
 
         final Class<?> currentClass = classContext.getActiveId();
+        if (currentClass == null) {
+            return;
+        }
 
         ServerSetup setup = currentClass.getAnnotation(ServerSetup.class);
         if (setup == null) {
